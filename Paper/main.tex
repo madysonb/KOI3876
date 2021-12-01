@@ -10,13 +10,22 @@
 \newcommand{\vdag}{(v)^\dagger}
 \newcommand\aastex{AAS\TeX}
 \newcommand\latex{La\TeX}
+\newcommand{\clustername}{MELANGE-2}
+
 \newcommand{\name}{KOI-3876}
 \newcommand{\starname}{KOI-3876}
 \newcommand{\planetname}{KOI-3876\,b}
-\newcommand{\clustername}{MELANGE-2}
 \newcommand{\koi}{3876 }
 \newcommand{\ticid}{122450696}
 \newcommand{\kicid}{3440118}
+
+\newcommand{\nametwo}{Kepler-970}
+\newcommand{\starnametwo}{Kepler-970}
+\newcommand{\planetnametwo}{Kepler-970\,b}
+\newcommand{\koitwo}{1838}
+\newcommand{\ticidtwo}{???}
+\newcommand{\kicidtwo}{5526527}
+
 \newcommand\apx{\ensuremath{\sim}}
 \newcommand\citeeg[1]{\csitep[\emph{e.g.},][]{#1}}
 \renewcommand\deg{\ensuremath{^\circ}}
@@ -139,7 +148,7 @@ The four known clusters in the \kepler\ field are all at distances of more than 
 
 The availability of precise parallaxes and proper motions for millions of stars from \gaia\ \citep{Gaia_mission2016, GaiaEDR3} has enabled the discovery of new coeval stellar associations \citep[e.g.,][]{2019A&A...622L..13M, 2021arXiv210509338K}. The \texttt{FriendFinder} code\footnote{\url{https://github.com/adamkraus/Comove}} \citep{THYMEV} was designed to take advantage of \gaia\ data, by searching for potential co-moving `friends' around a user-identified young stars. This method has already been useful in finding the 250\,Myr MELANGE-1 association \citep{THYMEV} and age-dating a planet in the Musca region of Lower-Centarus-Crux \citep{2021arXiv211009531M}. 
 
-With the goal of finding previously undiscovered associations with transiting planets, we ran \texttt{FriendFinder} on \kepler\ objects of interest suspected to be younger than Hyades based on their lithium levels in \citet{2018ApJ...855..115B}. The most promising association was a group of stars nearby KOI-3876; the candidate members showed a color-magnitude diagram (CMD) consistent with the Pleiades (consistent with the lithium levels). Here we describe our work demonstrating that this population is a real $\simeq 110$\,Myr association (\association) $\simeq$300\,pc from the Sun, as well as our validation of the KOI as a planet. 
+With the goal of finding previously undiscovered associations with transiting planets, we ran \texttt{FriendFinder} on \kepler\ objects of interest suspected to be younger than Hyades based on their lithium levels in \citet{2018ApJ...855..115B}. The most promising association was a group of stars nearby KOI-3876; the candidate members showed a color-magnitude diagram (CMD) consistent with the Pleiades (consistent with the lithium levels). Here we describe our work demonstrating that the population (\association) is a co-eval 110\,Myr group, $\simeq$300\,pc from the Sun, and harbors two transiting planetary systems (\planetname\ and \planetnametwo).
 
 While the THYME survey was meant to focus on planets identified with \tess, \planetname\ was flagged as young by the same team and using the same methods as used extensively in the THYME and ZEIT series. Since the planet is not along the ecliptic, we opted to include it in the THYME survey series with a slight adjustment to the acronym. 
 
@@ -177,18 +186,24 @@ We show the color-magnitude diagram (CMD) for our candidate members in Figure~\r
 
 We observed \name\ and 21 association candidates (Section \ref{sec:target}) with the \coude\ spectrograph on the Harlan J. Smith 2.7m telescope at the McDonald Observatory. The Robert G. Tull \coude\ is a cross-dispersed echelle spectrograph, delivering a R$\sim$60,000 spectral resolution from 3400--10000 \AA\  using the 1$\farcs$2 slit \citep{Tull1995}. Observations we're taken over the course of two observing runs, on 2021 July 9 and 2021 August 26--27. The sample was selected to include association candidates that could be observed with the \coude\ in modest exposure times ($G<13$), and spectral types later than mid-F ($B_p-R_P > 0.55$), where we expect lithium absorption to be a sensitive age diagnostic. The spectra are reduced with a custom python implementation of the standard IRAF procedures. Wavelength calibration made use of ThAr lamp spectra taken at the beginning, middle, and end of each night. the signal-to-noise of our spectra ranged between 14 and 60 per resolution element. 
 
-To assess whether association candidates are co-moving in three dimensions with \name, we measure radial velocities using spectral-line broadening functions (BFs). The BF is a linear inversion of an observed spectrum with a narrow-lined template, and represents the average stellar absorption-line profile. This profile (the BF) can be fit with a rotationally-broadened line profile to measure the stellar radial velocity and \vsini. We compute BFs for 34 spectral orders between 4300 and 9800 \AA that are free of telluric contamination using the {\tt saphires} python package \citep{Tofflemireetal2019}. BFs from individual orders are combined in to a single, high SNR BF and fit with a rotationally broadened profile \citep{Gray1992}. Narrow-lined templates, specific to each star, are taken from the \citet{2013A&A...553A...6H} PHOENIX model suite at the \teff\ closest to that provided by the \tess\ Input Catalog \citep[v8.0;][]{TIC2019}. Radial-velocity errors depend on the S/N and rotational broadening, but are generally on the order of 0.1 \kms. Measurements from the \coude\ spectra are provided in Table \ref{tab:sample}.
+To assess whether association candidates are co-moving in three dimensions, we measure radial velocities using spectral-line broadening functions (BFs). The BF is a linear inversion of an observed spectrum with a narrow-lined template, and represents the average stellar absorption-line profile. This profile (the BF) can be fit with a rotationally-broadened line profile to measure the stellar radial velocity and \vsini. We compute BFs for 34 spectral orders between 4300 and 9800 \AA that are free of telluric contamination using the {\tt saphires} python package \citep{Tofflemireetal2019}. BFs from individual orders are combined in to a single, high SNR BF and fit with a rotationally broadened profile \citep{Gray1992}. Narrow-lined templates, specific to each star, are taken from the \citet{2013A&A...553A...6H} PHOENIX model suite at the \teff\ closest to that provided by the \tess\ Input Catalog \citep[v8.0;][]{TIC2019}. Radial-velocity errors depend on the S/N and rotational broadening, but are generally on the order of 0.1 \kms. Measurements from the \coude\ spectra are provided in Table \ref{tab:sample}.
 
 \subsection{Kepler and TESS light curves}\label{sec:lc}
 
-\subsubsection{Light curves for transit search}
-\starname\ was observed by \kepler for the full 4.5 years at 30\,minute cadence. We obtained all \kepler\ photometry for \starname\ from the Mikulski Archive for Space Telescopes (MAST). This included all Quarters (Q0-Q17), providing more than 4 years of long-cadence (30\,m) photometry. \starname\ was also observed by \tess\ at 120\,second cadence during Sectors 40 and 41. However, the \tess\ light curve was insufficiently precise to unambiguously recover the planet in the \tess\ data, so we did not use it for our analysis. 
+\subsubsection{Light curves for transit search and characterization}
+%\starname\ and \starnametwo\ were both observed by \kepler for the full 4.5 years at 30\,minute cadence. 
+We searched for \kepler\ photometry for all 1007 candidates within the Mikulski Archive for Space Telescopes (MAST). A total of 84 targets had \kepler\ data, the majority of which had data from all quarters (Q0-Q17). We restricted our analysis to long-cadence data (30\,m), as short-cadence was not available for any of the planet hosts. For those lacking \kepler\ data, we instead downloaded \tess\ photometry wherever it was available through MAST. This included 15 targets with 2-minute cadence data, and 41 targets with 30-minute cadence data from the Quick-Look Pipeline \citep[QLP;][]{2020RNAAS...4..204H}. 
 
-To search for any additional planets in \association, we obtained \kepler\ photometry for any candidate member with a light curve, a total of 84 targets. For those lacking \kepler\ data, we instead downloaded \tess\ photometry wherever it was available through MAST. This included 15 targets with 2-minute cadence data, and 41 targets with 30-minute cadence data from the Quick-Look Pipeline \citep[QLP;][]{2020RNAAS...4..204H}. 
+% This included all Quarters (Q0-Q17), providing more than 4 years of long-cadence (30\,m) photometry. 
 
-Where possible, we used the Pre-search Data Conditioning Simple Aperture Photometry \citep[PDCSAP;][]{Smith2012, Stumpe2012}. This included \starname, all \kepler\ candidate members, and the 15 targets with 2-minute cadence from \tess. For the remaining, we used the QLP curves for our planet search. Table~\ref{tab:sample} lists which stars have \kepler\ and/or \tess\ photometry that was used for our planet search. More details on our transit search can be found in Section~\ref{sec:search}.
 
-The remaining 885 sources had no pre-extracted \tess\ or \kepler\ light curves. We did not extract additional curves from the full-frame \tess\ images. The association association is more than 300\,pc away; most of the remaining 885 were too faint to extract a light curve precise enough for our planet search. However, many such systems are still useful for measuring rotation periods.
+% \starname\ was also observed by \tess\ at 120\,second cadence during Sectors 40 and 41. However, the \tess\ light curve was insufficiently precise to unambiguously recover the planet in the \tess\ data, so we did not use it for our analysis. 
+
+% To search for any additional planets in \association, we obtained \kepler\ photometry for any candidate member with a light curve, a total of 84 targets. F
+
+Where possible, we used the Pre-search Data Conditioning Simple Aperture Photometry \citep[PDCSAP;][]{Smith2012, Stumpe2012}. This included \starname, all \kepler\ candidate members, and the 15 targets with 2-minute cadence from \tess. For the remaining, we used the Quick-Look Pipeline light curves (Huang et al, 2020; https://arxiv.org/abs/2011.06459) for our planet search. Table~\ref{tab:sample} lists which stars have \kepler\ and/or \tess\ photometry that was used for our planet search. More details on our transit search can be found in Section~\ref{sec:search}.
+
+The remaining 885 sources had no pre-extracted \tess\ or \kepler\ light curves. We did not extract additional curves from the full-frame \tess\ images for our planet search or characterization. The association association is more than 300\,pc away; most of the remaining stars were too faint to extract a light curve precise enough for our planet search. However, many such systems are still useful for measuring rotation periods.
 
 
 \subsubsection{Light curves and literature search for rotation}\label{sub:rot_collection}
@@ -196,9 +211,6 @@ The remaining 885 sources had no pre-extracted \tess\ or \kepler\ light curves. 
 To assess membership and age of \association members, we collect stellar rotation periods using literature measurements supplemented by our own measurements from \kepler\ and \tess\ light curves. First, candidate members were cross matched against \citet{Nielsen:2013}, \citet{McQuillan2013, 2014ApJS..211...24M}, and \citet{Santos2019, Santos2021} for literature rotation periods. We matched candidate members to catalog members by \kepler\ Input Catalog (KIC) identifiers, which are listed in each catalog. We identified $56$ candidate members with available literature rotations, all but five of which have rotation measurements in multiple catalogs. For candidates that appear in only one catalog, we adopt the single measurement value. In cases where a star had measurements from more than one source, we adopt the average of the measurements as the rotation period. Only one object, KIC 3743810, had a conflicting rotation periods between catalog sources. Based on a visual examination of this object's \kepler\ PDCSAP light curve we selected the value from \citet{Nielsen:2013}.
 
 For stars without literature rotation periods we performed our own analysis. Priority was given to \kepler\ PDCSAP data followed by \tess\ full-frame images. To generate the \tess\ light curves for rotation analysis, we first created raw flux light curves from the FFI cutouts centered on each candidate. Then, we generated a Causal Pixel Model (CPM) of the telescope systematics using the \texttt{unpopular} package \citep{2021arXiv210615063H} for each individual star. We subtracted the CPM systematics from the initial light curves, resulting in the light curves used for our rotation search described in Section~\ref{sec:rotation}.
-
-
-
 
 \subsection{Archival photometry and astrometry}
 We download positions, parallaxes, proper motions, and $B_P$, $R_P$ and $G$ photometry for all candidate members of \association\ using the third \gaia\ Early Data Release \citep[EDR3;][]{GaiaEDR3}. For \starname, we also retrieved photometry from the Two-Micron All-Sky Survey \citep[2MASS;][]{Skrutskie2006}, the Wide-field Infrared Survey Explorer \citep[WISE; ][]{allwise}, and the AAVSO All-Sky Photometric Survey \citep[APASS; ][]{apass}. Photometry for \starname\ is listed in Table~\ref{tab:prop}. 
@@ -210,6 +222,121 @@ In order of preference, we drew radial velocities for candidate \association\ me
 %\textcolor{orange}{I clearly applied a velocity offset of about 5 km/s to LAMOST to match APOGEE. I need a reference for this and I need to document it. }
 
 In total, we adopted \gaia\ RVs for 56 stars, APOGEE RVs for 5 stars, and LAMOST RVs for 25 stars. This was in addition to velocities from our Coude spectra for 22 candidate member stars as well as \starname. We applied an offset to the LAMOST velocities of +4.54\kms\ based on the comparison from \citet{2018A&A...620A..76A}. There may be additional zero-point differences between the velocity sources, but these are likely larger than the internal velocity spread within the group. The adopted velocities are given in Table~\ref{tab:sample}.
+
+
+
+
+\section{Search for planets in MELANGE-2}\label{sec:search}
+
+\textcolor{red}{did you use notch and locor, or just notch?}
+To check for other candidate planets or eclipsing binaries in the same association we searched the \textcolor{red}{265} \kepler\ and \tess\ light curves using the Notch pipeline pipelines. The details of both pipelines are described in more detail in \citet{Rizzuto2017}. To briefly summarize, the Notch filter fits a window of the lightcurve as a combination of an outlier-robust second-order polynomial (for the stellar variability) and a trapezoidal notch (representing the potential planet). The window moves along the lightcurve until the variability is detrended while preserving the planet signal. At each data point, we calculate the improvement from adding the trapezoidal notch based on the change in the in Bayesian Information Criterion (BIC) compared to modelling just a polynomial. LOCoR (Locally Optimized Combination of Rotations), instead models the stellar variability using linear combinations of pseudo-rotation measurements in other parts of the light curve than the region being modeled. It then repeats this process over the full curve. 
+
+We searched the detrended light curves (both Notch and LOCoR detrended) and the BIC signals that Notch produces for periodic signals. We excluded the rotation period (and aliases) of the star, as it is common to have imperfect detrending with both algorithms. In addition to our search, a number of known \kepler\ objects of interest (KOIs) reside within candidate members of \association, identified by a simple cross-match against the most recent KOI catalog \citep{2016AJ....152..158T}. 
+
+In total, we identified 18 targets of interest that are either KOIs and/or pass the SNR and initial quality checks from Notch/LOCor. Eight of these are known KOIs (KOI-678.01, KOI-678.02, KOI-966.01, KOI-966.02, KOI-1838.01, KOI-5304.01, KOI-6819.01, and KOI-7059.01), while the remaining are newly identified. 
+
+All 18 targets are listed in Table~\ref{tab:kois-kics} along with our classification of each. Other than \planetname, we concluded only one other detection (Kepler-970\,b) was both a real planet and a member of \association. We discuss each system and our reasons for rejection them below.
+
+
+
+% explain notch
+% Notch attempts to fit a polynomial with a trapezoid (the "notch") to every point on the light curve. Notch detrends the light curve by flattening the polynomial that is used to model sections of the light curve. A Bayesian Information Criterion (BIC) value is assigned to every data point based on how well the notch models that point versus modeling the data point with just a polynomial without the trapezoidal cut out. The BIC takes into account the number of data points, the number of fit parameters, and the likelihood function of the model. The probability factor that we obtain is a measure of how well the model fits the data. These BIC values are normalized on a scale between 0 and 1, with 0 meaning the data point is very likely to be the center of a signal and 1 meaning there is likely no signal present at the data point. 
+
+% explain locor
+
+% explain bls search
+% The Box Least Squares (BLS) search in the Notch and LOCoR package uses the detrended light curve after running either Notch or LOCoR on the light curve. The function runs an iterative BLS search on either the detrended light curve or the BIC sequence of the light curve. It searches for transits by looking for regular small BIC values. If a planet is identified, it will be removed from the detrended light curve or BIC model before the algorithm looks for an additional planet. 
+
+% what we did
+% We executed bulk searches of various stars in TESS data and Kepler data using Notch and LOCoR to look for promising targets. The THYME Team collaboration provided an initial list of known young stars from ESA’s Gaia mission. Using the lightkurve python package //cite//, we obtained the light curve for each target and ran it through the Notch and LOCoR pipeline. We were able to identify the KOI3876 transit, as well as a number of other eclipsing binaries, KOIs, TOIs, and false positives in the association.
+% talk about the initial FP disposition here? or in FP analysis?
+
+%We flagged X interesting things. Y of them were previously-noted KOIs (KOI X, KOI Y, KOI Z). Z of them were new. We concluded that KOI A was an EB (Figure). KOI 1234, 5678, were interesting, but low SNR, so we just consider these candidates. We summarize it all in Table~\ref{tab:tablename}.
+%Interesting objects: 9 T/KICs + 8 KOIs, stars: 6 KOI + 6 T/KICs
+
+\subsection{Discussion of individual candidates}
+
+KOI-1838.01 is a confirmed planet \citep[Kepler-970 b;][]{2016ApJ...822...86M}. The star's rotation (9.3\,days) places it right on the Pleiades sequence, and much faster than the stalling regime seen for $>600$\,Myr systems \citep{Curtis_stall}. The LAMOST (corrected) velocity is -32$\pm$4\,\kms, which is consistent with the value predicted for membership ($\simeq$-27\kms). A more precise measurement from the CKS-cool project (Petigura et al. 2021) yielded an RV of -27.15$\pm$0.10\kms, a nearly perfect match for the association. The spectra shows weak lithium ($<50m\AA$), but this is consistent with 100\,Myr for its spectral type \textcolor{red}{CITE A MODEL}. As we show in Figure~\ref{fig:CMD}, Figure~\ref{fig:ProperMotion}, and Figure~\ref{fig:xyz}, \starnametwo\ is consistent with \association's color-magnitude diagram, proper motion, and Galactic position. \textcolor{red}{ALL THREE PLOTS SHOULD BE UPDATED}. We conclude that this planet is real and a member and include it in our analysis of \starname.
+
+%\textcolor{red}{Calculate UVW XYZ for this target. Add to plots? Comment on position within the cluster. Comment on conclusion and future follow-up. The Li levels look like <30mA; but this is in a region where it could be depleted. Unclear. The HIRES data also suggests RV = -30. I think this is a member, but the current evidence is thin. We should ask the HIRES people? We need to rewrite some of the paper if there's two planets.  }
+
+KOI-678 (.01 and .02) contains two confirmed planets (Kepler-211\,bc), and the star's light curve showed a clear rotation signature of $\simeq$13.7\,days. However, this period is too long for membership given its \gaia\ colors (should be $\lesssim$8\,days). Similarly, the lithium equivalent width is only 3.8$m\AA$ \citep{2018ApJ...855..115B}, but membership would suggest a Li level above 100$m\AA$. The star's proper motion also puts it on the outskirts of the distribution. We conclude this target is unlikely to be a member. 
+
+Both planet candidates in KOI-966 are flagged as false positives by the \kepler\ analysis \citep{2016ApJS..224...12C}, with both signals attributed to an eclipsing binary (.02 corresponding to an alias of the secondary eclipse). We similarly concluded that the signal is likely an eclipsing binary based on the V-shaped transit and secondary eclipse. The star's rotation period \citep[3.92\,days;][]{2013MNRAS.436.1883W} is consistent with membership for an M dwarf and does not match the eclipse period (0.379\,days). The star is also only 1\kms\ and 8\,pc from \starname, near the core of likely members. We conclude it is likely an eclipsing binary in the association.
+
+% KOI-1838.01
+
+% 2101379205604338688 & 289.62522 & 40.70874 & 14.788 & 3.102 & K5.3 & N & Y & 3.015 & 0.019 & 9.23 & 0.66 & 3 & $\ldots$ & $\ldots$ & -36.534 & 3.723 & 6 \\
+
+
+% While the star's rotational period $\simeq$9.3\,days is as expected for its \gaia\ colors, the tangential velocity is $\gtrsim$3\kms\ from that of \starname. Additionally, the radial velocity of KOI-1838 is -36\kms\ //from LAMOST//, which is about 10\kms\ off from \starname. We conclude this target is unlikely to be a member.\textcolor{red}{Uh, wait a sec, LAMOST RVs suck. The real rv is -31, it should be -36, and the error is 4. So it's consistent. It has no significant Li, but at bp-rp = 1.5, it should be Li depleted. This might be a legit member!}
+
+% KOI-6819.01 
+KOI-6819 contains a planet candidate (.01). The star shows no significant rotation, suggesting the star is of older age. We find KOI-6819 has a radial velocity of 3.27\kms\ //gaia dr2//, $>$20\kms\ off from \starname. KOI-6819 shows no Li signature, when we would expect $>$50$m\AA$. We conclude this target is unlikely to be a member. 
+
+% KOI-7059.01
+KOI-7059.01 is flagged as a false positive by the \kepler\ analysis \citep{2016ApJS..224...12C}, and the odd-even depth difference strongly suggests and eclipsing binary. KOI-7059 is $>$48\,pc from \starname. We conclude this target is likely a real eclipsing binary but unlikely to be a member.
+
+% KICs 1137886, 6134939, 6366739, 6589221, 9139566, and 9700914 and TICs 164461070, 20352534, 272486188, 273383615, 28768382, and 355909811
+For the newly identified targets, KICs 1137886, 6134939, 6366739, 6589221, 9139566, and 9700914 and TICs 164461070, 20352534, 272486188, 273383615, 28768382, and 355909811, we ultimately find that the SNR is below what we required for significance. This was determined by the BIC score for each target, where we found the BIC was below our threshold of significance for all targets. Even targets with the most transit-like signal (U-shaped and of reasonable depth), such as KIC 6589221 shown in Figure \ref{fig:kic221transit} and KIC 9700914 shown in Figure \ref{fig:kic914transit}, were deemed simply likely candidates. 
+
+% argue candidacy of each -- can lump together similar cases
+TICs 28768382 and 272486188 and KICs 9139566 and 9700914 are unlikely to be members due to the $>$20\kms\ difference in expected versus actual radial velocity. % add measured rvs and sources
+
+KIC 6589221, while is 42pc from \starname, we find to be within 2.2\kms\ of \starname\ and have a radial velocity of -24.44\kms\, which is $<$2\kms\ from expected. The stellar rotation of $\simeq$5.4 days closely matches the expected rotation period for its \gaia\ color. Further, the star's proper motion closely matches \starname. We conclude this target is likely to be a member.
+
+
+KOI-1838.01, KOI-678.01, and KOI-678.02 are confirmed planets, while KOI-6819.01 is still considered a planetary candidate. Using existing spectra from Exofop (//cite//), radial velocities from Gaia (//cite//), and rotational periods and activity metrics where available, we conclude all KOIs except KOI-966 are likely not members of the association. Based on it's rotational period, KOI-966, a clear eclipsing binary, is still likely a member. Notch and LOCoR flagged KICs 1137886, 6134939, 6366739, 6589221, 9139566, and 9700914 and TICs 164461070, 20352534, 272486188, 273383615, 28768382, and 355909811 as interesting targets possibly containing one or more transiting bodies. Due to the low SNR, we just consider these candidates. We summarize all findings in Table \ref{tab:kois-kics}.
+
+
+%we rejected KOI612 (TICXXX) because the Li equivalent width from Berger et al (XXX) was only 3.8mA, while we expect levels to be >100mA at this age and spectral type. Similarly, while the star shows clear rotation, the rotation period (13.X days, citation) is well above the Pleiades sequence
+
+\begin{deluxetable}{lccc}
+\centering
+\tabletypesize{\scriptsize}
+\tablecaption{Planetary Candidates in \association. \label{tab:kois-kics}}
+\tablehead{\colhead{ID} & \colhead{Disposition} & \colhead{Probable Member?} }
+\startdata
+\hline
+KOI-678.01 & Confirmed & N \\
+KOI-678.02 & Confirmed & N \\
+KOI-966.01 & EB & Y \\
+KOI-966.02 & EB & Y \\
+KOI-1838.01 & Confirmed & N \\
+KOI-5304.01 & FP & N \\
+KOI-6819.01 & Candidate & N \\
+KOI-7059.01 & EB & N \\
+\hline
+KIC 1137886 & Candidate & \\
+KIC 6134939 & Candidate & \\
+KIC 6366739 & Candidate & \\
+KIC 6589221 & Candidate & Y \\
+KIC 9139566 & Candidate & N \\
+KIC 9700914 & Candidate & N \\
+TIC 164461070 & Candidate & \\
+TIC 20352534 & Candidate & \\
+TIC 272486188 & Candidate & N \\
+TIC 273383615 & Candidate & \\
+TIC 28768382 & Candidate & N \\
+TIC 355909811 & Candidate & \\
+\enddata
+\end{deluxetable}
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.49\textwidth]{KIC6589221LC.pdf}
+    \caption{Phase-folded light curve of potential member KIC 6589221 from \tess\ detrended with Notch and LOCoR (grey points). We find that the bestfit period is 7.1073 days, with an initial transit time of 1689.709 BTJD. }
+    \label{fig:kic221transit}
+\end{figure}
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.49\textwidth]{KIC9700914LC.pdf}
+    \caption{Phase-folded light curve of potential member KIC 9700914 from \tess\ detrended with Notch and LOCoR (grey points). We find that the bestfit period is 20.016 days, with an initial transit time of 1690.503 BTJD. }
+    \label{fig:kic914transit}
+\end{figure}
+
+
 
 \section{The MELANGE-2 Association}\label{sec:cluster}
 
@@ -319,115 +446,7 @@ Of 1007 initial candidates, only having 92 stars with Pleiades-like rotation per
 % I'm not 100\% sure what needs to go here. We need to either show that this is a part of Theia 316, or that it's not. In some sense it doesn't matter, but we need to address it. 
 
 
-\section{Search for planets in MELANGE-2}\label{sec:search}
-
-\textcolor{red}{did you use notch and locor, or just notch?}
-To check for other candidate planets or eclipsing binaries in the same association we searched the \textcolor{red}{265} \kepler\ and \tess\ light curves using the Notch pipeline pipelines. The details of both pipelines are described in more detail in \citet{Rizzuto2017}. To briefly summarize, the Notch filter fits a window of the lightcurve as a combination of an outlier-robust second-order polynomial (for the stellar variability) and a trapezoidal notch (representing the potential planet). The window moves along the lightcurve until the variability is detrended while preserving the planet signal. At each data point, we calculate the improvement from adding the trapezoidal notch based on the change in the in Bayesian Information Criterion (BIC) compared to modelling just a polynomial. LOCoR (Locally Optimized Combination of Rotations), instead models the stellar variability using linear combinations of pseudo-rotation measurements in other parts of the light curve than the region being modeled. It then repeats this process over the full curve. 
-
-We searched the detrended light curves (both Notch and LOCoR detrended) and the BIC signals that Notch produces for periodic signals. We excluded the rotation period (and aliases) of the star, as it is common to have imperfect detrending with both algorithms. In addition to our search, a number of known \kepler\ objects of interest (KOIs) reside within candidate members of \association, identified by a simple cross-match against the most recent KOI catalog \citep{2016AJ....152..158T}. 
-
-In total, we identified 18 targets of interest that are either KOIs and/or pass the SNR and initial quality checks from Notch/LOCor. Eight of these are known KOIs (KOI-678.01, KOI-678.02, KOI-966.01, KOI-966.02, KOI-1838.01, KOI-5304.01, KOI-6819.01, and KOI-7059.01), while the remaining are newly identified. 
-
-All 18 targets are listed in Table~\ref{tab:kois-kics} along with our classification of each. We ultimately concluded that none of these are likely to be real planets and members of \association. We discuss each system and our reasons for rejecting them below.
-
-
-
-% explain notch
-% Notch attempts to fit a polynomial with a trapezoid (the "notch") to every point on the light curve. Notch detrends the light curve by flattening the polynomial that is used to model sections of the light curve. A Bayesian Information Criterion (BIC) value is assigned to every data point based on how well the notch models that point versus modeling the data point with just a polynomial without the trapezoidal cut out. The BIC takes into account the number of data points, the number of fit parameters, and the likelihood function of the model. The probability factor that we obtain is a measure of how well the model fits the data. These BIC values are normalized on a scale between 0 and 1, with 0 meaning the data point is very likely to be the center of a signal and 1 meaning there is likely no signal present at the data point. 
-
-% explain locor
-
-% explain bls search
-% The Box Least Squares (BLS) search in the Notch and LOCoR package uses the detrended light curve after running either Notch or LOCoR on the light curve. The function runs an iterative BLS search on either the detrended light curve or the BIC sequence of the light curve. It searches for transits by looking for regular small BIC values. If a planet is identified, it will be removed from the detrended light curve or BIC model before the algorithm looks for an additional planet. 
-
-% what we did
-% We executed bulk searches of various stars in TESS data and Kepler data using Notch and LOCoR to look for promising targets. The THYME Team collaboration provided an initial list of known young stars from ESA’s Gaia mission. Using the lightkurve python package //cite//, we obtained the light curve for each target and ran it through the Notch and LOCoR pipeline. We were able to identify the KOI3876 transit, as well as a number of other eclipsing binaries, KOIs, TOIs, and false positives in the association.
-% talk about the initial FP disposition here? or in FP analysis?
-
-%We flagged X interesting things. Y of them were previously-noted KOIs (KOI X, KOI Y, KOI Z). Z of them were new. We concluded that KOI A was an EB (Figure). KOI 1234, 5678, were interesting, but low SNR, so we just consider these candidates. We summarize it all in Table~\ref{tab:tablename}.
-%Interesting objects: 9 T/KICs + 8 KOIs, stars: 6 KOI + 6 T/KICs
-
-\subsection{Discussion of individual candidates}
-
-KOI-678 (.01 and .02) contains two confirmed planets (Kepler-211\,bc), and the star's light curve showed a clear rotation signature of $\simeq$13.7\,days. However, this period is too long for membership given its \gaia\ colors (should be $\lesssim$8\,days). Similarly, the lithium equivalent width is only 3.8$m\AA$ \citep{2018ApJ...855..115B}, but membership would suggest a Li level above 100$m\AA$. The star's proper motion also puts it on the outskirts of the distribution. We conclude this target is unlikely to be a member. 
-
-Both planet candidates in KOI-966 are flagged as false positives by the \kepler\ analysis \citep{2016ApJS..224...12C}, with both signals attributed to an eclipsing binary (.02 corresponding to an alias of the secondary eclipse). We similarly concluded that the signal is likely an eclipsing binary based on the V-shaped transit and secondary eclipse. The star's rotation period \citep[3.92\,days;][]{2013MNRAS.436.1883W} is consistent with membership for an M dwarf and does not match the eclipse period (0.379\,days). The star is also only 1\kms\ and 8\,pc from \starname. We conclude it is likely a real eclipsing binary in the association.
-
-% KOI-1838.01
-KOI-1838.01 is a confirmed planet \citep[Kepler-970 b;][]{2016ApJ...822...86M}. The star's rotation (9.3\,days) places it right on the Pleiades sequence, and much faster than the stalling regime seen for $>600$\,Myr systems \citep{Curtis_stall}. The LAMOST (corrected) velocity is -32$\pm$4\,\kms, which is consistent with the value predicted for membership ($\simeq$-26\kms). \textcolor{red}{Calculate UVW XYZ for this target. Add to plots? Comment on position within the cluster. Comment on conclusion and future follow-up. The Li levels look like <30mA; but this is in a region where it could be depleted. Unclear. The HIRES data also suggests RV = -30. I think this is a member, but the current evidence is thin. We should ask the HIRES people? We need to rewrite some of the paper if there's two planets.  }
-
-% 2101379205604338688 & 289.62522 & 40.70874 & 14.788 & 3.102 & K5.3 & N & Y & 3.015 & 0.019 & 9.23 & 0.66 & 3 & $\ldots$ & $\ldots$ & -36.534 & 3.723 & 6 \\
-
-
-% While the star's rotational period $\simeq$9.3\,days is as expected for its \gaia\ colors, the tangential velocity is $\gtrsim$3\kms\ from that of \starname. Additionally, the radial velocity of KOI-1838 is -36\kms\ //from LAMOST//, which is about 10\kms\ off from \starname. We conclude this target is unlikely to be a member.\textcolor{red}{Uh, wait a sec, LAMOST RVs suck. The real rv is -31, it should be -36, and the error is 4. So it's consistent. It has no significant Li, but at bp-rp = 1.5, it should be Li depleted. This might be a legit member!}
-
-% KOI-6819.01 
-KOI-6819 contains a planet candidate (.01). The star shows no significant rotation, suggesting the star is of older age. We find KOI-6819 has a radial velocity of 3.27\kms\ //gaia dr2//, $>$20\kms\ off from \starname. KOI-6819 shows no Li signature, when we would expect $>$50$m\AA$. We conclude this target is unlikely to be a member. 
-
-% KOI-7059.01
-KOI-7059.01 is flagged as a false positive by the \kepler\ analysis \citep{2016ApJS..224...12C}, and the odd-even depth difference strongly suggests and eclipsing binary. KOI-7059 is $>$48\,pc from \starname. We conclude this target is likely a real eclipsing binary but unlikely to be a member.
-
-% KICs 1137886, 6134939, 6366739, 6589221, 9139566, and 9700914 and TICs 164461070, 20352534, 272486188, 273383615, 28768382, and 355909811
-For the newly identified targets, KICs 1137886, 6134939, 6366739, 6589221, 9139566, and 9700914 and TICs 164461070, 20352534, 272486188, 273383615, 28768382, and 355909811, we ultimately find that the SNR is below what we required for significance. This was determined by the BIC score for each target, where we found the BIC was below our threshold of significance for all targets. Even targets with the most transit-like signal (U-shaped and of reasonable depth), such as KIC 6589221 shown in Figure \ref{fig:kic221transit} and KIC 9700914 shown in Figure \ref{fig:kic914transit}, were deemed simply likely candidates. 
-
-% argue candidacy of each -- can lump together similar cases
-TICs 28768382 and 272486188 and KICs 9139566 and 9700914 are unlikely to be members due to the $>$20\kms\ difference in expected versus actual radial velocity. % add measured rvs and sources
-
-KIC 6589221, while is 42pc from \starname, we find to be within 2.2\kms\ of \starname\ and have a radial velocity of -24.44\kms\, which is $<$2\kms\ from expected. The stellar rotation of $\simeq$5.4 days closely matches the expected rotation period for its \gaia\ color. Further, the star's proper motion closely matches \starname. We conclude this target is likely to be a member.
-
-
-KOI-1838.01, KOI-678.01, and KOI-678.02 are confirmed planets, while KOI-6819.01 is still considered a planetary candidate. Using existing spectra from Exofop (//cite//), radial velocities from Gaia (//cite//), and rotational periods and activity metrics where available, we conclude all KOIs except KOI-966 are likely not members of the association. Based on it's rotational period, KOI-966, a clear eclipsing binary, is still likely a member. Notch and LOCoR flagged KICs 1137886, 6134939, 6366739, 6589221, 9139566, and 9700914 and TICs 164461070, 20352534, 272486188, 273383615, 28768382, and 355909811 as interesting targets possibly containing one or more transiting bodies. Due to the low SNR, we just consider these candidates. We summarize all findings in Table \ref{tab:kois-kics}.
-
-
-%we rejected KOI612 (TICXXX) because the Li equivalent width from Berger et al (XXX) was only 3.8mA, while we expect levels to be >100mA at this age and spectral type. Similarly, while the star shows clear rotation, the rotation period (13.X days, citation) is well above the Pleiades sequence
-
-\begin{deluxetable}{lccc}
-\centering
-\tabletypesize{\scriptsize}
-\tablecaption{Planetary Candidates in \association. \label{tab:kois-kics}}
-\tablehead{\colhead{ID} & \colhead{Disposition} & \colhead{Probable Member?} }
-\startdata
-\hline
-KOI-678.01 & Confirmed & N \\
-KOI-678.02 & Confirmed & N \\
-KOI-966.01 & EB & Y \\
-KOI-966.02 & EB & Y \\
-KOI-1838.01 & Confirmed & N \\
-KOI-5304.01 & FP & N \\
-KOI-6819.01 & Candidate & N \\
-KOI-7059.01 & EB & N \\
-\hline
-KIC 1137886 & Candidate & \\
-KIC 6134939 & Candidate & \\
-KIC 6366739 & Candidate & \\
-KIC 6589221 & Candidate & Y \\
-KIC 9139566 & Candidate & N \\
-KIC 9700914 & Candidate & N \\
-TIC 164461070 & Candidate & \\
-TIC 20352534 & Candidate & \\
-TIC 272486188 & Candidate & N \\
-TIC 273383615 & Candidate & \\
-TIC 28768382 & Candidate & N \\
-TIC 355909811 & Candidate & \\
-\enddata
-\end{deluxetable}
-
-\begin{figure}[tb]
-    \centering
-    \includegraphics[width=0.49\textwidth]{KIC6589221LC.pdf}
-    \caption{Phase-folded light curve of potential member KIC 6589221 from \tess\ detrended with Notch and LOCoR (grey points). We find that the bestfit period is 7.1073 days, with an initial transit time of 1689.709 BTJD. }
-    \label{fig:kic221transit}
-\end{figure}
-
-\begin{figure}[tb]
-    \centering
-    \includegraphics[width=0.49\textwidth]{KIC9700914LC.pdf}
-    \caption{Phase-folded light curve of potential member KIC 9700914 from \tess\ detrended with Notch and LOCoR (grey points). We find that the bestfit period is 20.016 days, with an initial transit time of 1690.503 BTJD. }
-    \label{fig:kic914transit}
-\end{figure}
-
-
-\section{Parameters of the planet host \planetname}\label{sec:stellar_params}
+\section{Parameters of the planet hosts \planetname}\label{sec:stellar_params}
 
 We summarize constraints on the host star in Table~\ref{tab:prop}, the details of which we provide in in this section. 
 
